@@ -1,172 +1,22 @@
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(to right bottom, #bbdefb, #e3f2fd); /* Gradien biru yang lebih menarik */
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 20px;
-    box-sizing: border-box; /* Memastikan padding tidak menambah lebar/tinggi */
-    color: #333;
+/* ... (kode CSS yang sudah ada sebelumnya) ... */
+
+/* Gaya untuk detail curhatan di Slide 5 */
+.curhat-detail-box {
+    background-color: #f0f8ff; /* Warna biru sangat muda */
+    padding: 25px;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    border: 1px solid #a7d9f7;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    width: calc(100% - 40px); /* Sesuaikan lebar */
+    max-width: 500px; /* Batasi lebar */
+    word-break: break-word; /* Memastikan teks panjang tidak meluber */
 }
 
-.app-wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 700px; /* Lebar maksimum aplikasi */
-    min-height: 600px; /* Tinggi minimum agar ada ruang */
-    background-color: #ffffff; /* Latar belakang putih untuk wrapper */
-    border-radius: 15px; /* Sudut lebih membulat */
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* Bayangan lebih dalam */
-    overflow: hidden; /* Penting untuk transisi slide */
-}
-
-.slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    padding: 40px; /* Padding untuk konten dalam slide */
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    opacity: 0; /* Awalnya tidak terlihat */
-    pointer-events: none; /* Tidak bisa diklik saat tidak aktif */
-    transition: opacity 0.5s ease-in-out; /* Animasi saat muncul/hilang */
-    background-color: #ffffff; /* Latar belakang slide putih */
-}
-
-.slide.active {
-    opacity: 1; /* Terlihat saat aktif */
-    pointer-events: all; /* Bisa diklik saat aktif */
-    position: static; /* Kembali ke posisi normal saat aktif */
-}
-
-.slide-content {
-    text-align: center;
-    max-width: 90%; /* Konten tidak terlalu lebar */
-}
-
-h1, h2 {
-    color: #0d47a1; /* Biru gelap untuk judul */
-    margin-bottom: 20px;
-}
-
-p {
-    color: #555;
-    line-height: 1.6;
-}
-
-textarea {
-    width: calc(100% - 40px); /* Kurangi padding */
-    padding: 15px;
-    margin-bottom: 20px;
-    border: 1px solid #90caf9; /* Border biru yang lebih lembut */
-    border-radius: 8px; /* Sudut membulat */
-    resize: vertical;
-    box-sizing: border-box;
-    font-size: 16px;
-    color: #333;
-    background-color: #e3f2fd; /* Latar belakang textarea lebih biru */
-}
-
-textarea::placeholder {
-    color: #777;
-}
-
-.main-button, .secondary-button {
-    background-color: #1e88e5; /* Biru utama */
-    color: white;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 17px;
-    font-weight: bold;
-    width: 100%;
-    max-width: 250px; /* Lebar tombol lebih kecil */
-    margin: 10px auto; /* Tengah dan ada jarak */
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    display: block; /* Agar bisa pakai margin auto */
-}
-
-.secondary-button {
-    background-color: #42a5f5; /* Biru lebih terang untuk tombol sekunder */
-    font-size: 15px;
-    padding: 10px 20px;
-}
-
-.main-button:hover, .secondary-button:hover {
-    background-color: #1565c0; /* Biru lebih gelap saat hover */
-    transform: translateY(-2px); /* Efek sedikit naik */
-}
-
-.idol-image {
-    width: 180px; /* Ukuran foto idol lebih besar */
-    height: 180px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 25px;
-    border: 4px solid #1e88e5; /* Border biru tebal */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Bayangan foto */
-}
-
-.welcome-image {
-    width: 200px;
-    height: 200px;
-    border-width: 5px;
-}
-
-.slide-image {
-    margin-top: 10px; /* Jarak atas untuk gambar di slide 2, 3, 4 */
-    margin-bottom: 25px;
-}
-
-.curhatan-list {
-    margin-top: 25px;
-    width: 100%;
-    max-height: 300px; /* Batasi tinggi daftar curhatan */
-    overflow-y: auto; /* Bisa digulir jika banyak curhatan */
-    padding-right: 10px; /* Ruang untuk scrollbar */
-}
-
-.curhat-item {
-    background-color: #f0f8ff; /* Warna biru sangat muda untuk setiap curhatan */
-    padding: 15px;
-    border-radius: 10px; /* Sudut lebih membulat */
-    margin-bottom: 12px;
-    border: 1px solid #a7d9f7; /* Border biru terang */
-    word-break: break-word;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); /* Bayangan item curhatan */
-    text-align: left; /* Teks curhatan rata kiri */
-}
-
-.curhat-item p {
-    margin: 0;
-    color: #333;
-    font-size: 15px;
-}
-
-.curhat-item .timestamp {
-    font-size: 12px;
-    color: #777;
-    margin-top: 8px;
-    display: block;
-}
-
-.quote {
-    font-style: italic;
-    font-size: 1.2em;
-    color: #0d47a1; /* Biru gelap untuk quote */
-    margin-top: 30px;
-}
-
-.author {
-    font-weight: bold;
-    color: #1e88e5;
-    margin-top: 10px;
+.curhat-detail-box p {
+    font-size: 1.1em;
+    color: #222;
+    margin-bottom: 15px;
 }
