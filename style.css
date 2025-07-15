@@ -191,3 +191,80 @@ textarea::placeholder {
     color: #222;
     margin-bottom: 15px;
 }
+
+.curhat-item {
+    position: relative; /* Penting untuk memposisikan tombol hapus */
+    background-color: #f0f8ff;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #a7d9f7;
+    word-break: break-word;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    text-align: left;
+    cursor: pointer; /* Menunjukkan bahwa item bisa diklik */
+    transition: transform 0.2s ease; /* Efek saat di-hover */
+}
+
+.curhat-item:hover {
+    transform: translateY(-2px); /* Efek sedikit naik saat di-hover */
+}
+
+.curhat-item p {
+    margin-right: 30px; /* Beri ruang untuk tombol hapus */
+    margin-bottom: 5px; /* Jarak dari timestamp */
+    color: #333;
+    font-size: 15px;
+}
+
+.curhat-item .timestamp {
+    font-size: 12px;
+    color: #777;
+    display: block;
+}
+
+.delete-button {
+    position: absolute; /* Posisikan tombol relatif terhadap curhat-item */
+    top: 10px;
+    right: 10px;
+    background-color: #ef5350; /* Warna merah */
+    color: white;
+    border: none;
+    border-radius: 50%; /* Bentuk bulat */
+    width: 25px;
+    height: 25px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s ease;
+    opacity: 0.8; /* Sedikit transparan */
+}
+
+.delete-button:hover {
+    background-color: #c62828; /* Merah lebih gelap saat hover */
+    opacity: 1; /* Tidak transparan */
+}
+
+/* Gaya untuk detail curhatan di Slide 5, pastikan tetap sama */
+.curhat-detail-box {
+    background-color: #f0f8ff;
+    padding: 25px;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    border: 1px solid #a7d9f7;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    width: calc(100% - 40px);
+    max-width: 500px;
+    word-break: break-word;
+}
+
+.curhat-detail-box p {
+    font-size: 1.1em;
+    color: #222;
+    margin-bottom: 15px;
+}
