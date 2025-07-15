@@ -6,16 +6,7 @@
     <title>My Secret</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    </body>
-</html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Secret</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+    </head>
 <body>
     <div class="app-wrapper">
         <div id="slide1" class="slide active">
@@ -41,7 +32,10 @@
             <div class="slide-content">
                 <h2>Semua Rahasiamu</h2>
                 <div id="daftarCurhatan" class="curhatan-list">
-                    <p style="text-align: center; color: #555;">Belum ada rahasia. Yuk, mulai tulis!</p>
+                    <div class="empty-list-message">
+                        <i class="fas fa-box-open"></i> <p>Belum ada rahasia di sini.</p>
+                        <p>Ayo, tulis curhatan pertamamu!</p>
+                    </div>
                 </div>
                 <button id="goToSlide2From3" class="main-button">Tulis Rahasia Baru</button>
                 <button id="goToSlide4From3" class="secondary-button">Halaman Inspirasi</button>

@@ -1,7 +1,6 @@
 body {
-    font-family: 'Poppins', sans-serif; /* Menggunakan font Poppins */
-    /* Gradien biru yang lebih kaya */
-    background: linear-gradient(135deg, #89cff0 0%, #4682b4 100%); /* Biru langit ke biru baja */
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #89cff0 0%, #4682b4 100%);
     margin: 0;
     display: flex;
     justify-content: center;
@@ -10,26 +9,23 @@ body {
     padding: 20px;
     box-sizing: border-box;
     color: #333;
-    overflow-x: hidden; /* Mencegah scrollbar horizontal jika ada efek */
+    overflow-x: hidden;
 }
 
-/* PERBAIKAN: Tambahkan titik di depan app-wrapper */
 .app-wrapper {
     position: relative;
     width: 100%;
     max-width: 700px;
     min-height: 600px;
     background-color: #ffffff;
-    border-radius: 20px; /* Sudut lebih membulat */
-    /* Bayangan lebih dalam dan menyebar */
+    border-radius: 20px;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25), 0 5px 15px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    transition: transform 0.3s ease-in-out; /* Animasi saat hover */
+    transition: transform 0.3s ease-in-out;
 }
 
-/* PERBAIKAN: Tambahkan titik di depan app-wrapper */
 .app-wrapper:hover {
-    transform: translateY(-5px); /* Efek sedikit naik saat hover */
+    transform: translateY(-5px);
 }
 
 .slide {
@@ -46,7 +42,7 @@ body {
     align-items: center;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.6s ease-in-out; /* Transisi lebih halus */
+    transition: opacity 0.6s ease-in-out;
     background-color: #ffffff;
 }
 
@@ -59,40 +55,40 @@ body {
 .slide-content {
     text-align: center;
     max-width: 90%;
-    width: 100%; /* Memastikan konten mengisi lebar slide */
+    width: 100%;
 }
 
 h1, h2 {
-    color: #0d47a1; /* Biru gelap */
-    margin-bottom: 25px; /* Jarak bawah lebih lega */
-    font-weight: 600; /* Lebih tebal */
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.05); /* Bayangan teks samar */
+    color: #0d47a1;
+    margin-bottom: 25px;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
 }
 
 p {
     color: #555;
-    line-height: 1.7; /* Jarak antar baris lebih lega */
-    font-weight: 300; /* Lebih tipis */
+    line-height: 1.7;
+    font-weight: 300;
 }
 
 textarea {
     width: calc(100% - 40px);
-    padding: 18px; /* Padding lebih besar */
-    margin-bottom: 25px; /* Jarak bawah lebih lega */
+    padding: 18px;
+    margin-bottom: 25px;
     border: 1px solid #90caf9;
-    border-radius: 12px; /* Sudut lebih membulat */
+    border-radius: 12px;
     resize: vertical;
     box-sizing: border-box;
     font-size: 16px;
     color: #333;
     background-color: #e3f2fd;
-    box-shadow: inset 0 2px 5px rgba(0,0,0,0.05); /* Bayangan dalam */
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 textarea:focus {
-    border-color: #1e88e5; /* Border biru saat fokus */
-    box-shadow: inset 0 2px 5px rgba(0,0,0,0.1), 0 0 0 3px rgba(30, 136, 229, 0.2); /* Bayangan luar saat fokus */
+    border-color: #1e88e5;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.1), 0 0 0 3px rgba(30, 136, 229, 0.2);
     outline: none;
 }
 
@@ -101,52 +97,50 @@ textarea::placeholder {
     font-weight: 300;
 }
 
-/* PERBAIKAN: Tambahkan titik di depan main-button */
 .main-button, .secondary-button {
-    background-color: #1e88e5; /* Biru utama */
+    background-color: #1e88e5;
     color: white;
-    padding: 15px 30px; /* Padding lebih besar */
+    padding: 15px 30px;
     border: none;
-    border-radius: 10px; /* Sudut lebih membulat */
+    border-radius: 10px;
     cursor: pointer;
-    font-size: 18px; /* Ukuran font lebih besar */
-    font-weight: 600; /* Lebih tebal */
+    font-size: 18px;
+    font-weight: 600;
     width: 100%;
-    max-width: 280px; /* Lebar tombol sedikit lebih besar */
+    max-width: 280px;
     margin: 10px auto;
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
     display: block;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Bayangan tombol */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .secondary-button {
-    background-color: #42a5f5; /* Biru lebih terang */
+    background-color: #42a5f5;
     font-size: 16px;
     padding: 12px 25px;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1); /* Bayangan lebih ringan */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
 }
 
 .main-button:hover, .secondary-button:hover {
-    background-color: #1565c0; /* Biru lebih gelap saat hover */
-    transform: translateY(-3px); /* Efek sedikit naik lebih terasa */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25); /* Bayangan lebih kuat saat hover */
+    background-color: #1565c0;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
 }
 
-/* PERBAIKAN: Tambahkan titik di depan idol-image */
 .idol-image {
     width: 180px;
     height: 180px;
     border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 30px; /* Jarak bawah lebih lega */
-    border: 5px solid #1e88e5; /* Border lebih tebal */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Bayangan foto lebih kuat */
+    margin-bottom: 30px;
+    border: 5px solid #1e88e5;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .welcome-image {
-    width: 220px; /* Ukuran foto di welcome lebih besar */
+    width: 220px;
     height: 220px;
-    border-width: 6px; /* Border lebih tebal */
+    border-width: 6px;
 }
 
 .slide-image {
@@ -154,25 +148,38 @@ textarea::placeholder {
     margin-bottom: 30px;
 }
 
-/* PERBAIKAN: Tambahkan titik di depan curhatan-list */
 .curhatan-list {
     margin-top: 30px;
     width: 100%;
-    max-height: 350px; /* Batasi tinggi daftar curhatan lebih tinggi */
+    max-height: 350px;
     overflow-y: auto;
-    padding-right: 15px; /* Ruang untuk scrollbar */
+    padding-right: 15px;
+    /* Kustomisasi Scrollbar untuk Webkit (Chrome, Safari) */
+    &::-webkit-scrollbar {
+        width: 8px; /* Lebar scrollbar */
+    }
+    &::-webkit-scrollbar-track {
+        background: #f1f1f1; /* Warna track scrollbar */
+        border-radius: 10px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: #888; /* Warna thumb scrollbar */
+        border-radius: 10px;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+        background: #555; /* Warna thumb saat hover */
+    }
 }
 
-/* PERBAIKAN: Tambahkan titik di depan curhat-item */
 .curhat-item {
     position: relative;
-    background-color: #e3f2fd; /* Warna biru sangat muda */
-    padding: 18px; /* Padding lebih besar */
-    border-radius: 12px; /* Sudut lebih membulat */
-    margin-bottom: 15px; /* Jarak antar item lebih lega */
+    background-color: #e3f2fd;
+    padding: 18px;
+    border-radius: 12px;
+    margin-bottom: 15px;
     border: 1px solid #a7d9f7;
     word-break: break-word;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1); /* Bayangan item curhatan lebih jelas */
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
     text-align: left;
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -180,33 +187,33 @@ textarea::placeholder {
 
 .curhat-item:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Bayangan lebih kuat saat hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
 .curhat-item p {
-    margin-right: 35px; /* Ruang untuk tombol hapus */
-    margin-bottom: 8px; /* Jarak dari timestamp */
+    margin-right: 35px;
+    margin-bottom: 8px;
     color: #333;
-    font-size: 16px; /* Ukuran font sedikit lebih besar */
+    font-size: 16px;
 }
 
 .curhat-item .timestamp {
-    font-size: 13px; /* Ukuran font sedikit lebih besar */
+    font-size: 13px;
     color: #777;
     display: block;
 }
 
 .delete-button {
     position: absolute;
-    top: 12px; /* Posisikan tombol lebih ke tengah */
+    top: 12px;
     right: 12px;
     background-color: #ef5350;
     color: white;
     border: none;
     border-radius: 50%;
-    width: 30px; /* Ukuran tombol lebih besar */
+    width: 30px;
     height: 30px;
-    font-size: 16px; /* Ukuran font 'X' lebih besar */
+    font-size: 16px;
     font-weight: bold;
     cursor: pointer;
     display: flex;
@@ -219,32 +226,31 @@ textarea::placeholder {
 .delete-button:hover {
     background-color: #c62828;
     opacity: 1;
-    transform: scale(1.1); /* Efek sedikit membesar saat hover */
+    transform: scale(1.1);
 }
 
-/* PERBAIKAN: Tambahkan titik di depan curhat-detail-box */
 .curhat-detail-box {
     background-color: #f0f8ff;
-    padding: 30px; /* Padding lebih besar */
-    border-radius: 15px; /* Sudut lebih membulat */
+    padding: 30px;
+    border-radius: 15px;
     margin-top: 25px;
     margin-bottom: 35px;
     border: 1px solid #a7d9f7;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15); /* Bayangan lebih kuat */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
     text-align: left;
     width: calc(100% - 40px);
-    max-width: 550px; /* Lebar maksimum lebih besar */
+    max-width: 550px;
     word-break: break-word;
 }
 
 .curhat-detail-box p {
-    font-size: 1.2em; /* Ukuran font lebih besar */
+    font-size: 1.2em;
     color: #222;
     margin-bottom: 20px;
 }
 
 .quote {
-    font-family: 'Georgia', serif; /* Font berbeda untuk quote */
+    font-family: 'Georgia', serif;
     font-style: italic;
     font-size: 1.3em;
     color: #0d47a1;
@@ -259,21 +265,49 @@ textarea::placeholder {
     font-size: 1.1em;
 }
 
+/* Gaya untuk pesan daftar kosong */
+.empty-list-message {
+    text-align: center;
+    margin-top: 50px;
+    color: #888;
+    font-size: 1.1em;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    border: 1px dashed #ccc;
+}
+
+.empty-list-message i { /* Untuk ikon Font Awesome */
+    font-size: 3em;
+    color: #bbb;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.empty-list-message p {
+    margin: 5px 0;
+    color: #666;
+}
+
+
 /* Responsif untuk layar kecil */
 @media (max-width: 600px) {
-    /* PERBAIKAN: Tambahkan titik di depan app-wrapper */
-    .app-wrapper {
+    body {
         padding: 0;
+    }
+
+    .app-wrapper {
         border-radius: 0;
         box-shadow: none;
         min-height: 100vh;
+        max-width: 100%;
+        width: 100%;
     }
 
     .slide {
         padding: 20px;
     }
 
-    /* PERBAIKAN: Tambahkan titik di depan idol-image */
     .idol-image {
         width: 150px;
         height: 150px;
@@ -293,22 +327,18 @@ textarea::placeholder {
         font-size: 1.5em;
     }
 
-    /* PERBAIKAN: Tambahkan titik di depan main-button */
     .main-button, .secondary-button {
         max-width: 100%;
     }
 
-    /* PERBAIKAN: Tambahkan titik di depan curhatan-list */
     .curhatan-list {
         max-height: 250px;
     }
 
-    /* PERBAIKAN: Tambahkan titik di depan curhat-item */
     .curhat-item {
         padding: 12px;
     }
 
-    /* PERBAIKAN: Tambahkan titik di depan curhat-detail-box */
     .curhat-detail-box {
         padding: 20px;
     }

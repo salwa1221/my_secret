@@ -1,7 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
     // === Variabel Elemen HTML ===
-    // const passwordInput = document.getElementById('passwordInput'); // Hapus ini
-    // const enterAppButton = document.getElementById('enterAppButton'); // Hapus ini
     const curhatInput = document.getElementById('curhatInput');
     const postCurhatButton = document.getElementById('postCurhat');
     const daftarCurhatan = document.getElementById('daftarCurhatan');
@@ -10,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Tombol Navigasi Slide
     const goToSlide1From4 = document.getElementById('goToSlide1From4');
-    const goToSlide2 = document.getElementById('goToSlide2'); // Pastikan ini ada
+    const goToSlide2 = document.getElementById('goToSlide2');
     const goToSlide2From3 = document.getElementById('goToSlide2From3');
     const goToSlide3 = document.getElementById('goToSlide3');
     const goToSlide4From3 = document.getElementById('goToSlide4From3');
@@ -19,10 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const slides = document.querySelectorAll('.slide');
 
     let currentSlide = 1;
-
-    // === HAPUS BAGIAN PASSWORD INI ===
-    // const CORRECT_PASSWORD = "rahasia";
-    // === AKHIR BAGIAN PASSWORD YANG DIHAPUS ===
 
     // === Fungsi Navigasi Slide ===
     function showSlide(slideNumber) {
@@ -33,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
         currentSlide = slideNumber;
 
         if (slideNumber === 3) {
-            tampilkanCurhatan();
+            tampilkanCurhatan(); // Selalu perbarui daftar saat masuk slide 3
         }
     }
 
@@ -72,6 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             semuaCurhatan = semuaCurhatan.filter(item => {
                 if (typeof item === 'string') {
+                    // Jika ada item lama yang hanya string, biarkan saja atau Anda bisa hapus manual jika tidak ingin ini muncul
                     return true;
                 }
                 return item.timestamp !== timestampToDelete;
@@ -95,7 +90,14 @@ document.addEventListener('DOMContentLoaded', () => {
         let semuaCurhatan = localStorage.getItem('curhatan') ? JSON.parse(localStorage.getItem('curhatan')) : [];
 
         if (semuaCurhatan.length === 0) {
-            daftarCurhatan.innerHTML = '<p style="text-align: center; color: #777;">Belum ada rahasia yang kamu tulis.</p>';
+            // Menggunakan struktur pesan kosong yang baru
+            daftarCurhatan.innerHTML = `
+                <div class="empty-list-message">
+                    <i class="fas fa-box-open"></i>
+                    <p>Belum ada rahasia di sini.</p>
+                    <p>Ayo, tulis curhatan pertamamu!</p>
+                </div>
+            `;
             return;
         }
 
@@ -103,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (typeof item === 'string') {
                 item = {
                     text: item,
-                    timestamp: new Date('2024-07-15T00:00:00Z').getTime()
+                    timestamp: new Date('2024-07-15T00:00:00Z').getTime() // Default timestamp for old data
                 };
             }
 
@@ -141,24 +143,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // === Event Listeners untuk Tombol dan Fungsionalitas Utama ===
-
-    // HAPUS BAGIAN INI (logika password)
-    // enterAppButton.addEventListener('click', () => {
-    //     const enteredPassword = passwordInput.value;
-    //     if (enteredPassword === CORRECT_PASSWORD) {
-    //         showSlide(2);
-    //         passwordInput.value = '';
-    //     } else {
-    //         alert('Password salah. Silakan coba lagi.');
-    //         passwordInput.value = '';
-    //     }
-    // });
-    // AKHIR BAGIAN YANG DIHAPUS
-
-    // Aktifkan kembali fungsi tombol "Mulai Curhat" di slide 1
     goToSlide2.addEventListener('click', () => showSlide(2));
 
-    // Tombol untuk mengirim curhatan
     postCurhatButton.addEventListener('click', () => {
         const textCurhat = curhatInput.value.trim();
         if (textCurhat) {
@@ -171,7 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Navigasi Tombol lainnya (tidak ada perubahan)
+    // Navigasi Tombol lainnya
     goToSlide3.addEventListener('click', () => showSlide(3));
     goToSlide2From3.addEventListener('click', () => showSlide(2));
     goToSlide4From3.addEventListener('click', () => showSlide(4));
