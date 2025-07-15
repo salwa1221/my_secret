@@ -1,0 +1,75 @@
+body {
+    font-family: sans-serif;
+    background-color: #e0f2f7; /* Warna latar belakang biru muda */
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+}
+.container {
+    background-color: #ffffff; /* Warna putih untuk kotak utama */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Efek bayangan */
+    width: 80%;
+    max-width: 600px;
+    margin-bottom: 20px;
+}
+h1 {
+    color: #0d47a1; /* Warna biru gelap untuk judul utama */
+    text-align: center;
+    margin-bottom: 20px;
+}
+textarea {
+    width: calc(100% - 20px); /* Lebar textarea disesuaikan */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #bbdefb; /* Border biru muda */
+    border-radius: 5px;
+    resize: vertical; /* Memungkinkan textarea diubah ukurannya secara vertikal */
+    box-sizing: border-box; /* Memastikan padding dan border tidak menambah lebar */
+}
+button {
+    background-color: #1e88e5; /* Warna biru untuk tombol */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer; /* Kursor berubah jadi tangan saat diarahkan ke tombol */
+    font-size: 16px;
+    width: 100%;
+}
+button:hover {
+    background-color: #1565c0; /* Warna biru lebih gelap saat tombol disentuh mouse */
+}
+.curhatan-list {
+    margin-top: 20px;
+    width: 100%;
+}
+.curhat-item {
+    background-color: #f0f8ff; /* Warna biru sangat muda untuk setiap curhatan */
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #81d4fa; /* Border biru terang */
+    word-break: break-word; /* Memastikan teks panjang tidak meluber */
+}
+.curhat-item p {
+    color: #333; /* Warna teks abu-abu gelap */
+    margin: 0;
+}
+.idol-image {
+    width: 150px; /* Ukuran foto idol */
+    height: 150px;
+    border-radius: 50%; /* Membuat foto jadi lingkaran */
+    object-fit: cover; /* Memastikan gambar tetap proporsional */
+    margin-bottom: 15px;
+    border: 3px solid #1e88e5; /* Border biru di sekitar foto */
+}
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
