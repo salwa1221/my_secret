@@ -1,25 +1,35 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(to right bottom, #bbdefb, #e3f2fd); /* Gradien biru yang lebih menarik */
+    font-family: 'Poppins', sans-serif; /* Menggunakan font Poppins */
+    /* Gradien biru yang lebih kaya */
+    background: linear-gradient(135deg, #89cff0 0%, #4682b4 100%); /* Biru langit ke biru baja */
     margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     padding: 20px;
-    box-sizing: border-box; /* Memastikan padding tidak menambah lebar/tinggi */
+    box-sizing: border-box;
     color: #333;
+    overflow-x: hidden; /* Mencegah scrollbar horizontal jika ada efek */
 }
 
+/* PERBAIKAN: Tambahkan titik di depan app-wrapper */
 .app-wrapper {
     position: relative;
     width: 100%;
-    max-width: 700px; /* Lebar maksimum aplikasi */
-    min-height: 600px; /* Tinggi minimum agar ada ruang */
-    background-color: #ffffff; /* Latar belakang putih untuk wrapper */
-    border-radius: 15px; /* Sudut lebih membulat */
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* Bayangan lebih dalam */
-    overflow: hidden; /* Penting untuk transisi slide */
+    max-width: 700px;
+    min-height: 600px;
+    background-color: #ffffff;
+    border-radius: 20px; /* Sudut lebih membulat */
+    /* Bayangan lebih dalam dan menyebar */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25), 0 5px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out; /* Animasi saat hover */
+}
+
+/* PERBAIKAN: Tambahkan titik di depan app-wrapper */
+.app-wrapper:hover {
+    transform: translateY(-5px); /* Efek sedikit naik saat hover */
 }
 
 .slide {
@@ -28,243 +38,278 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    padding: 40px; /* Padding untuk konten dalam slide */
+    padding: 40px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    opacity: 0; /* Awalnya tidak terlihat */
-    pointer-events: none; /* Tidak bisa diklik saat tidak aktif */
-    transition: opacity 0.5s ease-in-out; /* Animasi saat muncul/hilang */
-    background-color: #ffffff; /* Latar belakang slide putih */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease-in-out; /* Transisi lebih halus */
+    background-color: #ffffff;
 }
 
 .slide.active {
-    opacity: 1; /* Terlihat saat aktif */
-    pointer-events: all; /* Bisa diklik saat aktif */
-    position: static; /* Kembali ke posisi normal saat aktif */
+    opacity: 1;
+    pointer-events: all;
+    position: static;
 }
 
 .slide-content {
     text-align: center;
-    max-width: 90%; /* Konten tidak terlalu lebar */
+    max-width: 90%;
+    width: 100%; /* Memastikan konten mengisi lebar slide */
 }
 
 h1, h2 {
-    color: #0d47a1; /* Biru gelap untuk judul */
-    margin-bottom: 20px;
+    color: #0d47a1; /* Biru gelap */
+    margin-bottom: 25px; /* Jarak bawah lebih lega */
+    font-weight: 600; /* Lebih tebal */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.05); /* Bayangan teks samar */
 }
 
 p {
     color: #555;
-    line-height: 1.6;
+    line-height: 1.7; /* Jarak antar baris lebih lega */
+    font-weight: 300; /* Lebih tipis */
 }
 
 textarea {
-    width: calc(100% - 40px); /* Kurangi padding */
-    padding: 15px;
-    margin-bottom: 20px;
-    border: 1px solid #90caf9; /* Border biru yang lebih lembut */
-    border-radius: 8px; /* Sudut membulat */
+    width: calc(100% - 40px);
+    padding: 18px; /* Padding lebih besar */
+    margin-bottom: 25px; /* Jarak bawah lebih lega */
+    border: 1px solid #90caf9;
+    border-radius: 12px; /* Sudut lebih membulat */
     resize: vertical;
     box-sizing: border-box;
     font-size: 16px;
     color: #333;
-    background-color: #e3f2fd; /* Latar belakang textarea lebih biru */
+    background-color: #e3f2fd;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.05); /* Bayangan dalam */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+textarea:focus {
+    border-color: #1e88e5; /* Border biru saat fokus */
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.1), 0 0 0 3px rgba(30, 136, 229, 0.2); /* Bayangan luar saat fokus */
+    outline: none;
 }
 
 textarea::placeholder {
     color: #777;
+    font-weight: 300;
 }
 
+/* PERBAIKAN: Tambahkan titik di depan main-button */
 .main-button, .secondary-button {
     background-color: #1e88e5; /* Biru utama */
     color: white;
-    padding: 12px 25px;
+    padding: 15px 30px; /* Padding lebih besar */
     border: none;
-    border-radius: 8px;
+    border-radius: 10px; /* Sudut lebih membulat */
     cursor: pointer;
-    font-size: 17px;
-    font-weight: bold;
+    font-size: 18px; /* Ukuran font lebih besar */
+    font-weight: 600; /* Lebih tebal */
     width: 100%;
-    max-width: 250px; /* Lebar tombol lebih kecil */
-    margin: 10px auto; /* Tengah dan ada jarak */
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    display: block; /* Agar bisa pakai margin auto */
+    max-width: 280px; /* Lebar tombol sedikit lebih besar */
+    margin: 10px auto;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    display: block;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Bayangan tombol */
 }
 
 .secondary-button {
-    background-color: #42a5f5; /* Biru lebih terang untuk tombol sekunder */
-    font-size: 15px;
-    padding: 10px 20px;
+    background-color: #42a5f5; /* Biru lebih terang */
+    font-size: 16px;
+    padding: 12px 25px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1); /* Bayangan lebih ringan */
 }
 
 .main-button:hover, .secondary-button:hover {
     background-color: #1565c0; /* Biru lebih gelap saat hover */
-    transform: translateY(-2px); /* Efek sedikit naik */
+    transform: translateY(-3px); /* Efek sedikit naik lebih terasa */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25); /* Bayangan lebih kuat saat hover */
 }
 
+/* PERBAIKAN: Tambahkan titik di depan idol-image */
 .idol-image {
-    width: 180px; /* Ukuran foto idol lebih besar */
+    width: 180px;
     height: 180px;
     border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 25px;
-    border: 4px solid #1e88e5; /* Border biru tebal */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Bayangan foto */
+    margin-bottom: 30px; /* Jarak bawah lebih lega */
+    border: 5px solid #1e88e5; /* Border lebih tebal */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Bayangan foto lebih kuat */
 }
 
 .welcome-image {
-    width: 200px;
-    height: 200px;
-    border-width: 5px;
+    width: 220px; /* Ukuran foto di welcome lebih besar */
+    height: 220px;
+    border-width: 6px; /* Border lebih tebal */
 }
 
 .slide-image {
-    margin-top: 10px; /* Jarak atas untuk gambar di slide 2, 3, 4 */
-    margin-bottom: 25px;
-}
-
-.curhatan-list {
-    margin-top: 25px;
-    width: 100%;
-    max-height: 300px; /* Batasi tinggi daftar curhatan */
-    overflow-y: auto; /* Bisa digulir jika banyak curhatan */
-    padding-right: 10px; /* Ruang untuk scrollbar */
-}
-
-.curhat-item {
-    background-color: #f0f8ff; /* Warna biru sangat muda untuk setiap curhatan */
-    padding: 15px;
-    border-radius: 10px; /* Sudut lebih membulat */
-    margin-bottom: 12px;
-    border: 1px solid #a7d9f7; /* Border biru terang */
-    word-break: break-word;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); /* Bayangan item curhatan */
-    text-align: left; /* Teks curhatan rata kiri */
-}
-
-.curhat-item p {
-    margin: 0;
-    color: #333;
-    font-size: 15px;
-}
-
-.curhat-item .timestamp {
-    font-size: 12px;
-    color: #777;
-    margin-top: 8px;
-    display: block;
-}
-
-.quote {
-    font-style: italic;
-    font-size: 1.2em;
-    color: #0d47a1; /* Biru gelap untuk quote */
-    margin-top: 30px;
-}
-
-.author {
-    font-weight: bold;
-    color: #1e88e5;
-    margin-top: 10px;
-}
-
-/* Gaya untuk detail curhatan di Slide 5 */
-.curhat-detail-box {
-    background-color: #f0f8ff; /* Warna biru sangat muda */
-    padding: 25px;
-    border-radius: 10px;
-    margin-top: 20px;
+    margin-top: 15px;
     margin-bottom: 30px;
-    border: 1px solid #a7d9f7;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    text-align: left;
-    width: calc(100% - 40px); /* Sesuaikan lebar */
-    max-width: 500px; /* Batasi lebar */
-    word-break: break-word; /* Memastikan teks panjang tidak meluber */
 }
 
-.curhat-detail-box p {
-    font-size: 1.1em;
-    color: #222;
-    margin-bottom: 15px;
+/* PERBAIKAN: Tambahkan titik di depan curhatan-list */
+.curhatan-list {
+    margin-top: 30px;
+    width: 100%;
+    max-height: 350px; /* Batasi tinggi daftar curhatan lebih tinggi */
+    overflow-y: auto;
+    padding-right: 15px; /* Ruang untuk scrollbar */
 }
 
+/* PERBAIKAN: Tambahkan titik di depan curhat-item */
 .curhat-item {
-    position: relative; /* Penting untuk memposisikan tombol hapus */
-    background-color: #f0f8ff;
-    padding: 15px;
-    border-radius: 10px;
-    margin-bottom: 12px;
+    position: relative;
+    background-color: #e3f2fd; /* Warna biru sangat muda */
+    padding: 18px; /* Padding lebih besar */
+    border-radius: 12px; /* Sudut lebih membulat */
+    margin-bottom: 15px; /* Jarak antar item lebih lega */
     border: 1px solid #a7d9f7;
     word-break: break-word;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1); /* Bayangan item curhatan lebih jelas */
     text-align: left;
-    cursor: pointer; /* Menunjukkan bahwa item bisa diklik */
-    transition: transform 0.2s ease; /* Efek saat di-hover */
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .curhat-item:hover {
-    transform: translateY(-2px); /* Efek sedikit naik saat di-hover */
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Bayangan lebih kuat saat hover */
 }
 
 .curhat-item p {
-    margin-right: 30px; /* Beri ruang untuk tombol hapus */
-    margin-bottom: 5px; /* Jarak dari timestamp */
+    margin-right: 35px; /* Ruang untuk tombol hapus */
+    margin-bottom: 8px; /* Jarak dari timestamp */
     color: #333;
-    font-size: 15px;
+    font-size: 16px; /* Ukuran font sedikit lebih besar */
 }
 
 .curhat-item .timestamp {
-    font-size: 12px;
+    font-size: 13px; /* Ukuran font sedikit lebih besar */
     color: #777;
     display: block;
 }
 
 .delete-button {
-    position: absolute; /* Posisikan tombol relatif terhadap curhat-item */
-    top: 10px;
-    right: 10px;
-    background-color: #ef5350; /* Warna merah */
+    position: absolute;
+    top: 12px; /* Posisikan tombol lebih ke tengah */
+    right: 12px;
+    background-color: #ef5350;
     color: white;
     border: none;
-    border-radius: 50%; /* Bentuk bulat */
-    width: 25px;
-    height: 25px;
-    font-size: 14px;
+    border-radius: 50%;
+    width: 30px; /* Ukuran tombol lebih besar */
+    height: 30px;
+    font-size: 16px; /* Ukuran font 'X' lebih besar */
     font-weight: bold;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: background-color 0.2s ease;
-    opacity: 0.8; /* Sedikit transparan */
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    opacity: 0.8;
 }
 
 .delete-button:hover {
-    background-color: #c62828; /* Merah lebih gelap saat hover */
-    opacity: 1; /* Tidak transparan */
+    background-color: #c62828;
+    opacity: 1;
+    transform: scale(1.1); /* Efek sedikit membesar saat hover */
 }
 
-/* Gaya untuk detail curhatan di Slide 5, pastikan tetap sama */
+/* PERBAIKAN: Tambahkan titik di depan curhat-detail-box */
 .curhat-detail-box {
     background-color: #f0f8ff;
-    padding: 25px;
-    border-radius: 10px;
-    margin-top: 20px;
-    margin-bottom: 30px;
+    padding: 30px; /* Padding lebih besar */
+    border-radius: 15px; /* Sudut lebih membulat */
+    margin-top: 25px;
+    margin-bottom: 35px;
     border: 1px solid #a7d9f7;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15); /* Bayangan lebih kuat */
     text-align: left;
     width: calc(100% - 40px);
-    max-width: 500px;
+    max-width: 550px; /* Lebar maksimum lebih besar */
     word-break: break-word;
 }
 
 .curhat-detail-box p {
-    font-size: 1.1em;
+    font-size: 1.2em; /* Ukuran font lebih besar */
     color: #222;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.quote {
+    font-family: 'Georgia', serif; /* Font berbeda untuk quote */
+    font-style: italic;
+    font-size: 1.3em;
+    color: #0d47a1;
+    margin-top: 40px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
+
+.author {
+    font-weight: 600;
+    color: #1e88e5;
+    margin-top: 15px;
+    font-size: 1.1em;
+}
+
+/* Responsif untuk layar kecil */
+@media (max-width: 600px) {
+    /* PERBAIKAN: Tambahkan titik di depan app-wrapper */
+    .app-wrapper {
+        padding: 0;
+        border-radius: 0;
+        box-shadow: none;
+        min-height: 100vh;
+    }
+
+    .slide {
+        padding: 20px;
+    }
+
+    /* PERBAIKAN: Tambahkan titik di depan idol-image */
+    .idol-image {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 20px;
+    }
+
+    .welcome-image {
+        width: 180px;
+        height: 180px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    /* PERBAIKAN: Tambahkan titik di depan main-button */
+    .main-button, .secondary-button {
+        max-width: 100%;
+    }
+
+    /* PERBAIKAN: Tambahkan titik di depan curhatan-list */
+    .curhatan-list {
+        max-height: 250px;
+    }
+
+    /* PERBAIKAN: Tambahkan titik di depan curhat-item */
+    .curhat-item {
+        padding: 12px;
+    }
+
+    /* PERBAIKAN: Tambahkan titik di depan curhat-detail-box */
+    .curhat-detail-box {
+        padding: 20px;
+    }
 }
