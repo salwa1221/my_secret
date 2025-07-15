@@ -4,62 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Secret</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    </head>
+</head>
 <body>
     <div class="app-wrapper">
         <div id="slide1" class="slide active">
             <div class="slide-content">
                 <img src="idol.jpg" alt="Foto Idol Selamat Datang" class="idol-image welcome-image">
-                <h1>Selamat Datang di My Secret</h1>
+                <h1>Selamat Datang di My Secret <i class="fas fa-heart"></i></h1>
                 <p>Tempat aman untuk berbagi rahasia dan perasaanmu.</p>
-                <button id="goToSlide2" class="main-button">Mulai Curhat</button>
+                <button id="goToSlide2" class="main-button"><i class="fas fa-pencil-alt"></i> Mulai Curhat</button>
             </div>
         </div>
 
         <div id="slide2" class="slide">
             <div class="slide-content">
                 <img src="idol2.jpg" alt="Foto Idol Kedua" class="idol-image slide-image">
-                <h2>Tulis Rahasiamu di Sini</h2>
+                <h2>Tulis Rahasiamu di Sini <i class="fas fa-feather-alt"></i></h2>
                 <textarea id="curhatInput" placeholder="Curhatkan apa saja di sini..." rows="8"></textarea>
-                <button id="postCurhat" class="main-button">Kirim Rahasia</button>
-                <button id="goToSlide3" class="secondary-button">Lihat Semua Rahasia</button>
+                <button id="postCurhat" class="main-button"><i class="fas fa-paper-plane"></i> Kirim Rahasia</button>
+                <button id="goToSlide3" class="secondary-button"><i class="fas fa-book"></i> Lihat Semua Rahasia</button>
             </div>
         </div>
 
         <div id="slide3" class="slide">
             <div class="slide-content">
-                <h2>Semua Rahasiamu</h2>
+                <h2>Semua Rahasiamu <i class="fas fa-list-alt"></i></h2>
                 <div id="daftarCurhatan" class="curhatan-list">
                     <div class="empty-list-message">
+                        <i class="fas fa-box-open"></i>
                         <p>Belum ada rahasia di sini.</p>
                         <p>Ayo, tulis curhatan pertamamu!</p>
                     </div>
                 </div>
-                <button id="goToSlide2From3" class="main-button">Tulis Rahasia Baru</button>
-                <button id="goToSlide4From3" class="secondary-button">Halaman Inspirasi</button>
+                <button id="goToSlide2From3" class="main-button"><i class="fas fa-plus"></i> Tulis Rahasia Baru</button>
+                <button id="goToSlide4From3" class="secondary-button"><i class="fas fa-lightbulb"></i> Halaman Inspirasi</button>
             </div>
         </div>
 
         <div id="slide4" class="slide">
             <div class="slide-content">
                 <img src="idol3.jpg" alt="Foto Idol Ketiga" class="idol-image slide-image">
-                <h2>Kata-kata Inspirasi</h2>
+                <h2>Kata-kata Inspirasi <i class="fas fa-quote-right"></i></h2>
                 <p class="quote">"Hidup ini indah, nikmati setiap detiknya. Kamu kuat dan berharga."</p>
                 <p class="author">- My Secret</p>
-                <button id="goToSlide1From4" class="main-button">Kembali ke Awal</button>
+                <button id="goToSlide1From4" class="main-button"><i class="fas fa-home"></i> Kembali ke Awal</button>
             </div>
         </div>
 
         <div id="slide5" class="slide">
             <div class="slide-content">
-                <h2>Detail Rahasia</h2>
+                <h2>Detail Rahasia <i class="fas fa-file-alt"></i></h2>
                 <div id="detailCurhatContent" class="curhat-detail-box">
                     <p id="detailCurhatText"></p>
                     <span id="detailCurhatTimestamp" class="timestamp"></span>
                 </div>
-                <button id="goToSlide3From5" class="main-button">Kembali ke Semua Rahasia</button>
+                <button id="goToSlide3From5" class="main-button"><i class="fas fa-arrow-left"></i> Kembali ke Semua Rahasia</button>
             </div>
         </div>
     </div>
