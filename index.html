@@ -7,20 +7,46 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="header">
-        <img src="idol.jpg" alt="Foto Idol" class="idol-image">
-        <h1>Tulis Rahasiamu di Sini</h1>
-    </div>
-    
-    <div class="container">
-        <textarea id="curhatInput" placeholder="Tulis curhatanmu di sini..." rows="5"></textarea>
-        <button id="postCurhat">Kirim</button>
-    </div>
-
-    <div class="container curhatan-list">
-        <h2>Curhatan yang Sudah Ada</h2>
-        <div id="daftarCurhatan">
+    <div class="app-wrapper">
+        <div id="slide1" class="slide active">
+            <div class="slide-content">
+                <img src="idol.jpg" alt="Foto Idol Selamat Datang" class="idol-image welcome-image">
+                <h1>Selamat Datang di My Secret</h1>
+                <p>Tempat aman untuk berbagi rahasia dan perasaanmu.</p>
+                <button id="goToSlide2" class="main-button">Mulai Curhat</button>
             </div>
+        </div>
+
+        <div id="slide2" class="slide">
+            <div class="slide-content">
+                <img src="idol2.jpg" alt="Foto Idol Kedua" class="idol-image slide-image">
+                <h2>Tulis Rahasiamu di Sini</h2>
+                <textarea id="curhatInput" placeholder="Curhatkan apa saja di sini..." rows="8"></textarea>
+                <button id="postCurhat" class="main-button">Kirim Rahasia</button>
+                <button id="goToSlide3" class="secondary-button">Lihat Semua Rahasia</button>
+            </div>
+        </div>
+
+        <div id="slide3" class="slide">
+            <div class="slide-content">
+                <h2>Semua Rahasiamu</h2>
+                <div id="daftarCurhatan" class="curhatan-list">
+                    <p style="text-align: center; color: #555;">Belum ada rahasia. Yuk, mulai tulis!</p>
+                </div>
+                <button id="goToSlide2From3" class="main-button">Tulis Rahasia Baru</button>
+                <button id="goToSlide4From3" class="secondary-button">Halaman Inspirasi</button>
+            </div>
+        </div>
+
+        <div id="slide4" class="slide">
+            <div class="slide-content">
+                <img src="idol3.jpg" alt="Foto Idol Ketiga" class="idol-image slide-image">
+                <h2>Kata-kata Inspirasi</h2>
+                <p class="quote">"Hidup ini indah, nikmati setiap detiknya. Kamu kuat dan berharga."</p>
+                <p class="author">- My Secret</p>
+                <button id="goToSlide1From4" class="main-button">Kembali ke Awal</button>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>

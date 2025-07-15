@@ -1,46 +1,111 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Mendapatkan elemen HTML berdasarkan ID-nya
+    // === Variabel Elemen HTML ===
     const curhatInput = document.getElementById('curhatInput');
     const postCurhatButton = document.getElementById('postCurhat');
     const daftarCurhatan = document.getElementById('daftarCurhatan');
 
-    // Fungsi untuk menyimpan curhatan ke Local Storage browser
-    // Local Storage adalah tempat di browser untuk menyimpan data kecil
-    function simpanCurhatan(curhatan) {
-        // Mengambil semua curhatan yang sudah ada (jika ada) atau membuat array kosong
+    // Tombol Navigasi Slide
+    const goToSlide1From4 = document.getElementById('goToSlide1From4');
+    const goToSlide2 = document.getElementById('goToSlide2');
+    const goToSlide2From3 = document.getElementById('goToSlide2From3');
+    const goToSlide3 = document.getElementById('goToSlide3');
+    const goToSlide4From3 = document.getElementById('goToSlide4From3');
+
+    const slides = document.querySelectorAll('.slide'); // Mendapatkan semua elemen dengan class 'slide'
+
+    let currentSlide = 1; // Mulai dari slide pertama (index 1)
+
+    // === Fungsi Navigasi Slide ===
+    function showSlide(slideNumber) {
+        // Sembunyikan semua slide
+        slides.forEach(slide => {
+            slide.classList.remove('active');
+        });
+        // Tampilkan slide yang diminta
+        document.getElementById(`slide${slideNumber}`).classList.add('active');
+        currentSlide = slideNumber;
+
+        // Jika pindah ke slide 3 (daftar curhatan), muat ulang daftar curhatan
+        if (slideNumber === 3) {
+            tampilkanCurhatan();
+        }
+    }
+
+    // === Fungsi untuk Mengambil dan Memformat Tanggal & Waktu ===
+    function getFormattedDateTime(timestamp) {
+        const date = new Date(timestamp);
+        const options = {
+            weekday: 'long', // Hari (e.g., Senin)
+            year: 'numeric',
+            month: 'long', // Bulan (e.g., Januari)
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: false // Format 24 jam
+        };
+        // Menggunakan 'id-ID' untuk format bahasa Indonesia
+        return date.toLocaleDateString('id-ID', options) + ' ' + date.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
+    }
+
+    // === Fungsi untuk Menyimpan Curhatan ke Local Storage ===
+    function simpanCurhatan(curhatanText) {
         let semuaCurhatan = localStorage.getItem('curhatan') ? JSON.parse(localStorage.getItem('curhatan')) : [];
-        // Menambahkan curhatan baru ke daftar
-        semuaCurhatan.push(curhatan);
-        // Menyimpan kembali daftar curhatan yang sudah diperbarui ke Local Storage
+        const timestamp = Date.now(); // Ambil timestamp saat ini (dalam milidetik)
+        
+        // Simpan curhatan sebagai objek { text, timestamp }
+        semuaCurhatan.push({ text: curhatanText, timestamp: timestamp });
         localStorage.setItem('curhatan', JSON.stringify(semuaCurhatan));
     }
 
-    // Fungsi untuk menampilkan semua curhatan dari Local Storage ke halaman web
+    // === Fungsi untuk Menampilkan Semua Curhatan dari Local Storage ===
     function tampilkanCurhatan() {
-        daftarCurhatan.innerHTML = ''; // Mengosongkan daftar tampilan sebelum mengisi ulang
-        // Mengambil semua curhatan dari Local Storage
+        daftarCurhatan.innerHTML = ''; // Kosongkan tampilan sebelumnya
         const semuaCurhatan = localStorage.getItem('curhatan') ? JSON.parse(localStorage.getItem('curhatan')) : [];
-        // Memutar setiap curhatan dan menambahkannya ke tampilan
-        semuaCurhatan.forEach((curhat, index) => {
-            const curhatItem = document.createElement('div'); // Membuat elemen div baru
-            curhatItem.classList.add('curhat-item'); // Menambahkan kelas CSS
-            curhatItem.innerHTML = `<p>${curhat}</p>`; // Mengisi dengan teks curhatan
-            daftarCurhatan.appendChild(curhatItem); // Menambahkan ke dalam daftar curhatan di HTML
+        
+        if (semuaCurhatan.length === 0) {
+            daftarCurhatan.innerHTML = '<p style="text-align: center; color: #777;">Belum ada rahasia yang kamu tulis.</p>';
+            return;
+        }
+
+        // Tampilkan curhatan dari yang terbaru
+        semuaCurhatan.reverse().forEach(item => { // Membalik urutan agar yang terbaru di atas
+            const curhatItem = document.createElement('div');
+            curhatItem.classList.add('curhat-item');
+            
+            const formattedDate = getFormattedDateTime(item.timestamp);
+            
+            curhatItem.innerHTML = `
+                <p>${item.text}</p>
+                <span class="timestamp">${formattedDate}</span>
+            `;
+            daftarCurhatan.appendChild(curhatItem);
         });
     }
 
-    // Menambahkan "pendengar kejadian" (event listener) saat tombol "Kirim" diklik
+    // === Event Listeners untuk Tombol dan Fungsionalitas ===
+
+    // Tombol untuk mengirim curhatan
     postCurhatButton.addEventListener('click', () => {
-        const textCurhat = curhatInput.value.trim(); // Mengambil teks dari input dan menghapus spasi di awal/akhir
-        if (textCurhat) { // Jika ada teks yang ditulis
-            simpanCurhatan(textCurhat); // Simpan curhatan
-            curhatInput.value = ''; // Mengosongkan kolom input
-            tampilkanCurhatan(); // Memperbarui tampilan curhatan
+        const textCurhat = curhatInput.value.trim();
+        if (textCurhat) {
+            simpanCurhatan(textCurhat);
+            curhatInput.value = ''; // Bersihkan textarea
+            alert('Rahasia Anda telah tersimpan!'); // Notifikasi
+            tampilkanCurhatan(); // Perbarui daftar di slide 3
+            showSlide(3); // Langsung pindah ke slide 3 setelah kirim
         } else {
-            alert('Silakan tulis curhatan Anda terlebih dahulu.'); // Memberi peringatan jika kolom kosong
+            alert('Silakan tulis rahasia Anda terlebih dahulu.');
         }
     });
 
-    // Panggil fungsi tampilkanCurhatan saat halaman web pertama kali dimuat
-    tampilkanCurhatan();
+    // Navigasi Tombol
+    goToSlide2.addEventListener('click', () => showSlide(2));
+    goToSlide3.addEventListener('click', () => showSlide(3)); // Dari slide 2 ke slide 3
+    goToSlide2From3.addEventListener('click', () => showSlide(2)); // Dari slide 3 ke slide 2
+    goToSlide4From3.addEventListener('click', () => showSlide(4)); // Dari slide 3 ke slide 4
+    goToSlide1From4.addEventListener('click', () => showSlide(1)); // Dari slide 4 ke slide 1
+
+    // Tampilkan slide pertama saat aplikasi dimuat
+    showSlide(1);
 });
